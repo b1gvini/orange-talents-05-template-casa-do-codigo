@@ -16,6 +16,7 @@ public class EmailUnicoAutorValidator implements Validator {
 
 	@Autowired
 	private AutorRepository autorRepository;
+
 	@Override
 	public boolean supports(Class<?> clazz) {
 		return AutorDTO.class.isAssignableFrom(clazz);
@@ -23,16 +24,17 @@ public class EmailUnicoAutorValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		
-		if(errors.hasErrors()) { //Verifica se já ocorreu algum outro erro de validação, caso sim, não executamos nossa validação.
+
+		if (errors.hasErrors()) { // Verifica se já ocorreu algum outro erro de validação, caso sim, não
+									// executamos nossa validação.
 			return;
 		}
-		
-		
+
 		AutorDTO dto = (AutorDTO) target;
 		Optional<Autor> existeAutor = autorRepository.findByEmail(dto.getEmail());
 		if (existeAutor.isPresent()) {
-			errors.rejectValue("email", null, "Email já cadastrado "+ dto.getEmail());
+			errors.rejectValue("email", "EmailUnico");
+
 		}
 	}
 
