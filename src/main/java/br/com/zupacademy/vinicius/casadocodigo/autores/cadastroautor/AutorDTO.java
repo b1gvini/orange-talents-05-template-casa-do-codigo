@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Length;
 
+import br.com.zupacademy.vinicius.casadocodigo.config.validacao.UniqueValue;
+
 public class AutorDTO {
 
 	@NotNull
@@ -15,6 +17,7 @@ public class AutorDTO {
 	@Email
 	@NotEmpty
 	@NotNull
+	@UniqueValue(domainClass = Autor.class, fieldName = "email" )
 	private String email;
 	@NotNull
 	@NotEmpty

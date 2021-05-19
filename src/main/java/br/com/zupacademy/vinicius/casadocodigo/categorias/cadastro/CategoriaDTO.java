@@ -5,10 +5,13 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
+import br.com.zupacademy.vinicius.casadocodigo.config.validacao.UniqueValue;
+
 public class CategoriaDTO {
 
 	@NotNull
 	@NotBlank
+	@UniqueValue(domainClass = Categoria.class, fieldName = "nome")
 	private String nome;
 
 	/*
