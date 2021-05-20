@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.zupacademy.vinicius.casadocodigo.autores.cadastroautor.AutorRepository;
 import br.com.zupacademy.vinicius.casadocodigo.categorias.cadastro.CategoriaRepository;
+import br.com.zupacademy.vinicius.casadocodigo.livros.Livro;
+import br.com.zupacademy.vinicius.casadocodigo.livros.LivroRepository;
 
 @RequestMapping("/livros")
 @RestController
-public class LivroController {
+public class CadastroLivroController {
 
 	@Autowired
 	private LivroRepository livroRepository;
@@ -25,7 +27,7 @@ public class LivroController {
 
 
 	@PostMapping
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid LivroDTO dto) {
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid CadastroLivroDTO dto) {
 		Livro livro = dto.converter(autorRepository, categoriaRepository);
 		livroRepository.save(livro);
 		return ResponseEntity.ok().build();

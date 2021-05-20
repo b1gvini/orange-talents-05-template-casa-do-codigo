@@ -1,4 +1,4 @@
-package br.com.zupacademy.vinicius.casadocodigo.livros.cadastro;
+package br.com.zupacademy.vinicius.casadocodigo.livros;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

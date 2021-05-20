@@ -20,8 +20,9 @@ import br.com.zupacademy.vinicius.casadocodigo.autores.cadastroautor.AutorReposi
 import br.com.zupacademy.vinicius.casadocodigo.categorias.cadastro.Categoria;
 import br.com.zupacademy.vinicius.casadocodigo.categorias.cadastro.CategoriaRepository;
 import br.com.zupacademy.vinicius.casadocodigo.config.validacao.UniqueValue;
+import br.com.zupacademy.vinicius.casadocodigo.livros.Livro;
 
-public class LivroDTO {
+public class CadastroLivroDTO {
 
 	@NotBlank
 	@UniqueValue(domainClass = Livro.class, fieldName = "titulo")
@@ -64,7 +65,7 @@ public class LivroDTO {
 	@NotNull
 	private Long categoria;
 
-	public LivroDTO(@NotBlank String titulo, @Length(max = 500) @NotBlank String resumo, @NotBlank String sumario,
+	public CadastroLivroDTO(@NotBlank String titulo, @Length(max = 500) @NotBlank String resumo, @NotBlank String sumario,
 			@Max(20) @NotNull BigDecimal precoDoLivro, @Min(100) @NotNull Integer numPaginas,
 			@ISBN @NotBlank String isbn, @NotNull Long autor, @NotNull Long categoria) {
 		this.titulo = titulo;

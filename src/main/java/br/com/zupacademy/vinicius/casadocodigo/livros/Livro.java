@@ -1,4 +1,4 @@
-package br.com.zupacademy.vinicius.casadocodigo.livros.cadastro;
+package br.com.zupacademy.vinicius.casadocodigo.livros;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -57,10 +57,11 @@ public class Livro {
 	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	@Future
 	private LocalDate dataDeEntrarNoAr;
-	
+
 	public void setDataDeEntrarNoAr(LocalDate dataDeEntrarNoAr) {
 		this.dataDeEntrarNoAr = dataDeEntrarNoAr;
 	}
+
 	@ManyToOne
 	private Autor autor;
 
@@ -86,4 +87,11 @@ public class Livro {
 		this.categoria = categoria;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return titulo;
+	}
 }
