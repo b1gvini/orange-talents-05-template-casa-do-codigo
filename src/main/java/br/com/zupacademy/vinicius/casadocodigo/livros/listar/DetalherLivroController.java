@@ -1,11 +1,11 @@
 package br.com.zupacademy.vinicius.casadocodigo.livros.listar;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,21 +13,21 @@ import br.com.zupacademy.vinicius.casadocodigo.livros.Livro;
 import br.com.zupacademy.vinicius.casadocodigo.livros.LivroRepository;
 
 @RestController
-@RequestMapping("/listar")
-public class LivroListarController {
-	
+@RequestMapping("/detalhar")
+public class DetalherLivroController {
+
 	@Autowired
 	private LivroRepository livroRepository;
 
-	@GetMapping
-	public ResponseEntity<List<ListarLivroDTO>> listar(){
-		List<Livro> lista = livroRepository.findAll();
-		List<ListarLivroDTO> listaDTO = new ArrayList<>();
+	@GetMapping("/{id}")
+	public ResponseEntity<?> detalhar(@PathVariable Long id) {
 		
-		for (Livro listarLivro : lista) {
-			listaDTO.add(new ListarLivroDTO(listarLivro.getId(), listarLivro.getTitulo()));
+		Optional<Livro> livro = livroRepository.findById(id);
+		if (livro.isPresent()) {
+			return ResponseEntity.ok(new DetalharLivroDTO(livro.get()));
 		}
-		return ResponseEntity.ok(listaDTO);
-		
+		return ResponseEntity.notFound().build();
+
 	}
+
 }

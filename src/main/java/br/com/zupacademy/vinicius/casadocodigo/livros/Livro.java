@@ -91,7 +91,40 @@ public class Livro {
 		return id;
 	}
 
-	public String getNome() {
+	public String getTitulo() {
 		return titulo;
 	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPrecoDoLivro() {
+		return precoDoLivro;
+	}
+
+	public Integer getNumPaginas() {
+		return numPaginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public LocalDate getDataDeEntrarNoAr() {
+		return dataDeEntrarNoAr;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
 }
