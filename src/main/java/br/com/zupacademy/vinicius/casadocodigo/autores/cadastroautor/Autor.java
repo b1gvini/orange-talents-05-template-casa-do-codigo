@@ -39,4 +39,11 @@ public class Autor {
 		this.criadoEm = OffsetDateTime.now();
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	
+	
+	
 }
