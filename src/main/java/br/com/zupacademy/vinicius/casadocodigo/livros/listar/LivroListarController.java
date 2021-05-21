@@ -15,19 +15,19 @@ import br.com.zupacademy.vinicius.casadocodigo.livros.LivroRepository;
 @RestController
 @RequestMapping("/listar")
 public class LivroListarController {
-	
+
 	@Autowired
 	private LivroRepository livroRepository;
 
 	@GetMapping
-	public ResponseEntity<List<ListarLivroDTO>> listar(){
+	public ResponseEntity<List<ListarLivroDTO>> listar() {
 		List<Livro> lista = livroRepository.findAll();
 		List<ListarLivroDTO> listaDTO = new ArrayList<>();
-		
-		for (Livro listarLivro : lista) {
-			listaDTO.add(new ListarLivroDTO(listarLivro.getId(), listarLivro.getTitulo()));
-		}
+
+		lista.forEach(livro -> {
+			listaDTO.add(new ListarLivroDTO(livro.getId(), livro.getTitulo()));
+		});
 		return ResponseEntity.ok(listaDTO);
-		
+
 	}
 }

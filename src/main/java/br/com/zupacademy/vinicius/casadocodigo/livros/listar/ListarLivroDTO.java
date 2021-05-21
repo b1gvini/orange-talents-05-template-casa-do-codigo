@@ -2,16 +2,16 @@ package br.com.zupacademy.vinicius.casadocodigo.livros.listar;
 
 public class ListarLivroDTO {
 	
-	private Long Id;
+	private Long id;
 	private String nome;
 	
-	public ListarLivroDTO(Long id, String titulo) {
-		this.Id = id;
-		this.nome = titulo;
+	public ListarLivroDTO(Long id, String nome) {
+		this.id = id;
+		this.nome = nome;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public String getNome() {

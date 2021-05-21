@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Lob;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -37,7 +38,7 @@ public class CadastroLivroDTO {
 	@NotBlank
 	private String sumario;
 
-	@Min(value = 20)
+	@DecimalMin(value = "20")
 	@NotNull
 	private BigDecimal precoDoLivro;
 
