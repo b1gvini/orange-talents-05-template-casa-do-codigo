@@ -18,6 +18,7 @@ public class Categoria {
 	@NotEmpty
 	private String nome;
 
+	@Deprecated
 	public Categoria() {
 
 	}

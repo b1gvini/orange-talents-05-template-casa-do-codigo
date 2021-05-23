@@ -3,6 +3,7 @@ package br.com.zupacademy.vinicius.casadocodigo.localizacao.estado;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.zupacademy.vinicius.casadocodigo.config.validacao.ExistingID;
 import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.Pais;
 import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.PaisRepository;
 
@@ -12,6 +13,7 @@ public class EstadoDTO {
 	private String nome;
 
 	@NotNull
+	@ExistingID(domainClass = Pais.class, fieldName = "id")
 	private Long idPais;
 
 	public EstadoDTO(String nome, Long id) {

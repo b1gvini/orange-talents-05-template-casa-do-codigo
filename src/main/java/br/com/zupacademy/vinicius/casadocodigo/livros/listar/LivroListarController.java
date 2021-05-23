@@ -22,6 +22,9 @@ public class LivroListarController {
 	@GetMapping
 	public ResponseEntity<List<ListarLivroDTO>> listar() {
 		List<Livro> lista = livroRepository.findAll();
+		if (lista.isEmpty()){
+			return ResponseEntity.ok().build();
+		}
 		List<ListarLivroDTO> listaDTO = new ArrayList<>();
 
 		lista.forEach(livro -> {

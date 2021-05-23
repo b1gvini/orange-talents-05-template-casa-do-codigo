@@ -2,6 +2,7 @@ package br.com.zupacademy.vinicius.casadocodigo.livros.cadastro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.persistence.Lob;
 import javax.validation.constraints.DecimalMin;
@@ -80,10 +81,13 @@ public class CadastroLivroDTO {
 	}
 
 	public Livro converter(AutorRepository autorRepository, CategoriaRepository categoriaRepository) {
-		Autor autorEntidade = autorRepository.findById(autor).get();
-		Categoria categoriaEntidade = categoriaRepository.findById(categoria).get();
-		return new Livro(titulo, resumo, sumario, precoDoLivro, numPaginas, isbn, dataDeEntrarNoAr, autorEntidade,
-				categoriaEntidade);
+		Optional<Autor> autorEntidade = autorRepository.findById(autor);
+		Optional<Categoria> categoriaEntidade = categoriaRepository.findById(categoria);
+		if(autorEntidade.isEmpty() || categoriaEntidade.isEmpty()) {
+			throw new IllegalArgumentException("Autor ou Categoria não encontrado");
+		}
+		return new Livro(titulo, resumo, sumario, precoDoLivro, numPaginas, isbn, dataDeEntrarNoAr, autorEntidade.get(),
+				categoriaEntidade.get());
 	}
 
 	public String getTitulo() {

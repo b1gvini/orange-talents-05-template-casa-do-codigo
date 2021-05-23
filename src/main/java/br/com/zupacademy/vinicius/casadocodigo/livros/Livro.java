@@ -68,6 +68,7 @@ public class Livro {
 	@ManyToOne
 	private Categoria categoria;
 
+	@Deprecated
 	public Livro() {
 
 	}
