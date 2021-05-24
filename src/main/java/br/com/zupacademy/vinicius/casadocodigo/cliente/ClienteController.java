@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.estado.EstadoRepository;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.PaisRepository;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.EstadoRepository;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.PaisRepository;
+import br.com.zupacademy.vinicius.casadocodigo.validacao.ExisteEstadoNestePaisValidator;
 
 @RestController
 @RequestMapping("/clientes")

@@ -6,12 +6,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.zupacademy.vinicius.casadocodigo.config.validacao.ExistingID;
-import br.com.zupacademy.vinicius.casadocodigo.config.validacao.UniqueValue;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.estado.Estado;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.estado.EstadoRepository;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.Pais;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.PaisRepository;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.Estado;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.EstadoRepository;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.Pais;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.PaisRepository;
+import br.com.zupacademy.vinicius.casadocodigo.validacao.CpfOuCnpj;
+import br.com.zupacademy.vinicius.casadocodigo.validacao.ExistingID;
+import br.com.zupacademy.vinicius.casadocodigo.validacao.UniqueValue;
 
 public class ClienteDTO {
 

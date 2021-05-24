@@ -9,9 +9,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.zupacademy.vinicius.casadocodigo.config.validacao.UniqueValue;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.estado.Estado;
-import br.com.zupacademy.vinicius.casadocodigo.localizacao.pais.Pais;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.Estado;
+import br.com.zupacademy.vinicius.casadocodigo.estadoepais.Pais;
+import br.com.zupacademy.vinicius.casadocodigo.validacao.UniqueValue;
 
 @Entity
 public class Cliente {
